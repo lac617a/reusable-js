@@ -1,0 +1,103 @@
+{
+  "name": "reusable-js",
+  "version": "0.1.1",
+  "description": "A versatile toolkit of utility functions and validators for simplifying data validation and common tasks in JavaScript applications.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Dominyel Rivera",
+    "email": "dominyel.r@gmial.com",
+    "url": "https://yoydev.com"
+  },
+  "files": [
+    "lib",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build": "tsc",
+    "prettier": "prettier --write .",
+    "prepare": "husky install",
+    "fix-all": "npm run lint -- --fix && git add -A . && npm run prettier",
+    "pre-push": "npm run build && [ $? -eq 0 ] || exit 1"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-standard": "17.0.0",
+    "@types/jest": "^29.5.4",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  },
+  "keywords": [
+    "validator",
+    "validation",
+    "validate",
+    "sanitise",
+    "assert",
+    "util",
+    "utility",
+    "helper functions",
+    "util functions",
+    "data validation",
+    "input validation",
+    "data sanitization",
+    "form validation",
+    "JavaScript utilities",
+    "common tasks",
+    "validation tools",
+    "validation functions"
+  ],
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "prettier"
+    ],
+    "ignorePatterns": [
+      "**/*.test.ts"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "rules": {
+      "no-unused-vars": [
+        1,
+        {
+          "args": "after-used",
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "prettier/prettier": "error"
+    }
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false,
+    "jsxSingleQuote": false,
+    "arrowParens": "avoid"
+  },
+  "engines": {
+    "node": ">= 16.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
